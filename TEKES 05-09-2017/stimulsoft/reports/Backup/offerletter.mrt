@@ -1,0 +1,1334 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Flex" application="StiReport">
+  <Dictionary isKey="true" Ref="1" type="Dictionary">
+    <Databases isList="true" count="1">
+      <Connection1 isKey="true" Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase">
+        <Alias>Connection1</Alias>
+        <ConnectionStringEncrypted>w2zFa0Zd06TiW7W9Y3ThP4t60cvFSnuZYVz9xHx44WPCVmnrSFYx9epHyYRhJaU7jVTbwslXe93i
+W9Xc</ConnectionStringEncrypted>
+        <Name>Connection1</Name>
+      </Connection1>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <DataSource1 isKey="true" Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlSource">
+        <Alias>DataSource1</Alias>
+        <Columns isList="true" count="11">
+          <value>Emp_FirstName,System.String</value>
+          <value>Emp_MiddleName,System.String</value>
+          <value>Emp_LastName,System.String</value>
+          <value>Emp_Doj,System.DateTime</value>
+          <value>Emp_Permanent,System.String</value>
+          <value>Emp_Temporary,System.String</value>
+          <value>Emp_Confirmationperiod,System.String</value>
+          <value>Designation_Name,System.String</value>
+          <value>Grade,System.String</value>
+          <value>Role,System.String</value>
+          <value>C_CTC,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>DataSource1</Name>
+        <NameInSource>Connection1</NameInSource>
+        <Parameters isList="true" count="0"/>
+        <SqlCommand>Select 
+tbl_employee.Emp_FirstName, 
+tbl_employee.Emp_MiddleName,
+tbl_employee.Emp_LastName,
+tbl_employee.Emp_Doj, 
+tbl_employee_personal.Emp_Permanent,
+tbl_employee_personal.Emp_Temporary,
+tbl_employee.Emp_Confirmationperiod,
+tbl_designation.Designation_Name, 
+tbl_designation.Grade,
+tbl_designation.Role,
+tbl_salary_info.C_CTC
+
+From 
+
+tbl_employee inner join tbl_employee_personal on tbl_employee.Emp_Number=tbl_employee_personal.Employee_Id
+inner join tbl_employee_career on tbl_employee.Emp_Number=tbl_employee_career.Employee_Id 
+inner join tbl_designation on tbl_designation.Designation_Id=tbl_employee_career.Designation_Id 
+inner join tbl_salary_info on tbl_salary_info.Employee_Id=tbl_employee.Emp_Number
+where tbl_employee.Emp_Number={param1}</SqlCommand>
+      </DataSource1>
+    </DataSources>
+    <Relations isList="true" count="0"/>
+    <Report isRef="0"/>
+    <Variables isList="true" count="0"/>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0"/>
+  <MetaTags isList="true" count="0"/>
+  <Pages isList="true" count="6">
+    <Page1 isKey="true" Ref="4" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="16">
+        <Text2 isKey="true" Ref="5" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,7,13.6,1.8</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>4b5d446ec06ec4e96f5a5dfcc16ecef5</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text2</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>{DataSource1.Emp_Temporary}</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text2>
+        <Text6 isKey="true" Ref="6" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,9,6.8,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12,Bold</Font>
+          <Guid>3222f73c301698bf754a5dfd6035cbc5</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text6</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>Subject: Appointment Letter</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text6>
+        <Text7 isKey="true" Ref="7" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,10,17.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12,Bold</Font>
+          <Guid>da134f35f0349cf0039f5e0648fe3b79</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text7</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>Dear {DataSource1.Emp_FirstName} {DataSource1.Emp_MiddleName} {DataSource1.Emp_LastName},</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text7>
+        <Text14 isKey="true" Ref="8" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,12.6,6.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>564952cdfd812d8bac315e0a4ffeddca</Guid>
+          <HorAlignment>Width</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text14</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>Your employment will commence on</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text14>
+        <Text15 isKey="true" Ref="9" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>6.8,12.6,4.4,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12,Bold</Font>
+          <Guid>0cac8431a3009f0dbdd95e0a76bfcb54</Guid>
+          <HorAlignment>Width</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text15</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>{DataSource1.Emp_Doj}</Text>
+          <TextBrush>Black</TextBrush>
+          <TextFormat isKey="true" Ref="10" type="CustomFormat">
+            <StringFormat>dd-MMM-yyyy</StringFormat>
+          </TextFormat>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>DataColumn</Type>
+        </Text15>
+        <Text10 isKey="true" Ref="11" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,13.6,17.2,1.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <HorAlignment>Width</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text10</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>&lt;p&gt;&lt;b&gt;1. Location : &lt;/b&gt;You will be based at &lt;b&gt;Bangalore&lt;/b&gt; at Koramangala Branch but may be required to work at such other locations within Bangalore or outside as reasonably determined by the needs of the business.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text10>
+        <Text17 isKey="true" Ref="12" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,15.2,17.2,1</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>0789756186954ad98ab75e0ea93c471e</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text17</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>&lt;p&gt;&lt;b&gt;2. Position : &lt;/b&gt;Your job role will be &lt;b&gt;{DataSource1.Role}&lt;/b&gt; and you will be reporting to the respective shift Team Leader/ Shift Manager. &lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text17>
+        <Text19 isKey="true" Ref="13" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.4,16.2,16.6,2.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>9bb667ec39789550b1335e105afc2f49</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text19</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Any change in reporting structure will be duly notified from time to time.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The roles and responsibilities of this position will be described separately in an attached Position Description. &lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text19>
+        <Text20 isKey="true" Ref="14" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,19.2,17.2,2.8</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>299a262ff17337854f565e12822487d5</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text20</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>&lt;p&gt;&lt;b&gt;3. Terms : &lt;/b&gt;Probationary Period a Three &lt;b&gt;{DataSource1.Emp_Confirmationperiod}&lt;/b&gt; month will apply to this role. During this time you will receive advice, training and guidance to help you become familiar with, and competent in, performing the work you have been appointed to do. The appointment is subject to the satisfactory completion of the Probationary Period which itself is subject to termination during any stage, by either party, upon 15 days notice in writing, or by payment in lieu of notice.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text20>
+        <Text21 isKey="true" Ref="15" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,22.4,17.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>a689e28b37ec81cdd6cd5e132f5e712d</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text21</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>&lt;p&gt;&lt;b&gt;4. Remuneration : &lt;/b&gt;&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text21>
+        <Text22 isKey="true" Ref="16" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,24.2,17.2,1</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>3b02e0cc8e3acfd834db5e139bc88de8</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text22</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>&lt;p&gt;The detailed breakdown of your Remuneration Package is provided separately annexed with this letter (see Annexure 1).&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text22>
+        <Text8 isKey="true" Ref="17" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,10.8,17.2,1.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>8777d44ec81ad0e3e5b85e34164e57cb</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text8</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>&lt;p&gt;We are pleased to appoint you as &lt;b&gt; {DataSource1.Designation_Name}&lt;/b&gt; in Grade &lt;b&gt;{DataSource1.Grade}&lt;/b&gt; with us here at DRN Definite Solutions Pvt. Ltd. 
+where we hope you will enjoy your role and make a significant contribution to the success of the business.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text8>
+        <Text13 isKey="true" Ref="18" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1,25.8,16.2,1.4</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,11</Font>
+          <Guid>a1f84aa27b960309488e1ddf3bcbd31e</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text13</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>#16, 4th Floor, Lakshya Towers, 1st Cross, Guava Garden, 5th Block, Koramangala, Bangalore – 560095, Ph No. 080-65691240, Email: info@drnds.com</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text13>
+        <Text61 isKey="true" Ref="19" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.6,23.2,16.4,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>119dadda127ea1a0c3a33b6b070ae4d4</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text61</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>&lt;li&gt; Your Total Cost to Company will be: &lt;b&gt;INR {DataSource1.C_CTC} &lt;/b&gt;/- Per annum&lt;/li&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text61>
+        <Text4 isKey="true" Ref="20" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,6.2,17.8,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12,Bold</Font>
+          <Guid>5c445c08d1e41cde9ff85dfc892f4bc5</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text4</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+          <Text>Mr.{DataSource1.Emp_FirstName} {DataSource1.Emp_MiddleName} {DataSource1.Emp_LastName},</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text4>
+        <ReportTitleBand1 isKey="true" Ref="21" type="ReportTitleBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,4.8</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text1 isKey="true" Ref="22" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.4,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Calibri,12</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="21"/>
+              <Text>HRD/     / 15 -16</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+            <Text3 isKey="true" Ref="23" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.4,0.4,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Calibri,12</Font>
+              <Guid>f0da8656df422a17731b5dfb7d6db799</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4"/>
+              <Parent isRef="21"/>
+              <Text>{Today}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat isKey="true" Ref="24" type="CustomFormat">
+                <StringFormat>dd-MMM-yyyy</StringFormat>
+              </TextFormat>
+              <Type>SystemVariables</Type>
+            </Text3>
+            <Image1 isKey="true" Ref="25" type="Image">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.8,1.6,3.2,3.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <DataColumn isNull="true"/>
+              <Image>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</Image>
+              <Name>Image1</Name>
+              <Page isRef="4"/>
+              <Parent isRef="21"/>
+            </Image1>
+            <Text62 isKey="true" Ref="26" type="Text">
+              <Border>None;Black;1;None;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.8,1.6,12.4,3</ClientRectangle>
+              <ComponentStyle>Header2</ComponentStyle>
+              <Conditions isList="true" count="0"/>
+              <Font>Calibri,12,Bold</Font>
+              <Guid>bd65719d80a36cd2f7e43b94d150fbef</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text62</Name>
+              <Page isRef="4"/>
+              <Parent isRef="21"/>
+              <Text>DRN DEFINITE SOLUTIONS PVT LTD
+No. 16, Lakshya Towers, 4th Floor, 5th Block, Koramangala,
+Bangalore, Karnataka, Pin - 560 095. Tel: 080 65691240
+Email: info@drnds.com</Text>
+              <TextBrush>[0:0:0]</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text62>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportTitleBand1</Name>
+          <Page isRef="4"/>
+          <Parent isRef="4"/>
+        </ReportTitleBand1>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>61e8d0f0a1b88b49b3035df812dfac52</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" Ref="27" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+    <Page2 isKey="true" Ref="28" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="10">
+        <Text27 isKey="true" Ref="29" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,10.4,17.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>c1e7c3224ef886ce44755e20b8562f96</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text27</Name>
+          <Page isRef="28"/>
+          <Parent isRef="28"/>
+          <Text>&lt;p&gt;&lt;b&gt;9. Deductions : &lt;/b&gt;&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text27>
+        <Text31 isKey="true" Ref="30" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.6,14.8,16.4,9.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>d96606fb1dd77c59da895e228a58c285</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text31</Name>
+          <Page isRef="28"/>
+          <Parent isRef="28"/>
+          <Text>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Annual Leave : &lt;/b&gt;You are entitled to 12 days’ (2 weeks’) annual paid leave per year of service Leave is accrued in accordance with the employment Act and should be taken within one year of falling due, on occasions negotiated with your manager. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Casual/Sick Leave : &lt;/b&gt;You are entitled to 12 days paid personal/carer’s leave in accordance with the Employment Act.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Maternity Leave (Women Employee) : &lt;/b&gt;You may be entitled to 90 days in line with the provisions of the Employment Act.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Parental Leave : &lt;/b&gt;You may be entitled to parental leave of 5 days in line with the provisions of Employment Act.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Leave encashment&lt;/b&gt; or carry forward will be notified duly by the HR department towards the end of the fiscal year.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The Company shall notify a list of declared holidays in the beginning of each year.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text31>
+        <Text26 isKey="true" Ref="31" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,8.4,17.2,1.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>b3bc5f22d88672c538745e2067f0de74</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text26</Name>
+          <Page isRef="28"/>
+          <Parent isRef="28"/>
+          <Text>&lt;p&gt;&lt;b&gt;8. Increments and Promotions: &lt;/b&gt;Your growth and increase in salary will depend solely on your performance and contribution to the company. Salary increases are normally given on a periodic basis, based on the company’s policies.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text26>
+        <Text11 isKey="true" Ref="32" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,3,17.2,1.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>9975117879ca0c31db9f1de839f7469e</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text11</Name>
+          <Page isRef="28"/>
+          <Parent isRef="28"/>
+          <Text>&lt;p&gt;&lt;b&gt;5. Alteration to Terms of Employment : &lt;/b&gt;Any alterations in the Regulations of Employment affecting staff individually will be notified by a letter or memorandum, but any general alteration will be communicated in a Circular to be seen by all members of staff.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text11>
+        <Text16 isKey="true" Ref="33" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,5,17.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>21a7ee2faf3c9fdf4d031de8ab591ea3</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text16</Name>
+          <Page isRef="28"/>
+          <Parent isRef="28"/>
+          <Text>&lt;p&gt;&lt;b&gt;6. Payments : &lt;/b&gt;Your salary will be paid monthly before the 5&lt;sub&gt;th&lt;/sub&gt; of every Calendar Month directly to your Salary Account, the account details shall be notified to the Employer upon activation.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text16>
+        <Text18 isKey="true" Ref="34" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,6.4,17.2,1.4</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>a164bdce2350f2e40fa51de8e9903f4b</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text18</Name>
+          <Page isRef="28"/>
+          <Parent isRef="28"/>
+          <Text>&lt;p&gt;&lt;b&gt;7. Public Provident Fund (PPF) : &lt;/b&gt;Voluntary PPF payments will be made on your behalf in accordance with the PPF Fund Regulations. As per company Policy, PF is mandatory and will be part of the Cost to the Company.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text18>
+        <Text24 isKey="true" Ref="35" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.6,11,16.4,2.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>c05660df17cb7881c8701de97597c10b</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text24</Name>
+          <Page isRef="28"/>
+          <Parent isRef="28"/>
+          <Text>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Insurance, ESI, PF and Professional taxes if any will be deducted at source.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Income tax will not be deducted as part of monthly salary. However will be annualized based on the savings proof that you provide.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text24>
+        <Text25 isKey="true" Ref="36" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.2,14,16.8,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>405b23b2e098da109dc31de9b3078f2a</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text25</Name>
+          <Page isRef="28"/>
+          <Parent isRef="28"/>
+          <Text>&lt;p&gt;&lt;b&gt;10. Leave / Holidays : &lt;/b&gt;&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text25>
+        <Text28 isKey="true" Ref="37" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.4,26,16.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,11</Font>
+          <Guid>e23ba7de5607afc17e521deaab0102b3</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text28</Name>
+          <Page isRef="28"/>
+          <Parent isRef="28"/>
+          <Text>#16, 4th Floor, Lakshya Towers, 1st Cross, Guava Garden, 5th Block, Koramangala, Bangalore – 560095, Ph No. 080-65691240, Email: info@drnds.com</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text28>
+        <ReportTitleBand2 isKey="true" Ref="38" type="ReportTitleBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2.4</ClientRectangle>
+          <Components isList="true" count="0"/>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportTitleBand2</Name>
+          <Page isRef="28"/>
+          <Parent isRef="28"/>
+        </ReportTitleBand2>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>cc30b686ab2752c3bd895e1750cd52ea</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page2</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" Ref="39" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page2>
+    <Page3 isKey="true" Ref="40" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="12">
+        <Text23 isKey="true" Ref="41" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,2.8,17.2,4</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>b0e204f08a8c62f3bfee1debb5d54d3b</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text23</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+          <Text>&lt;p&gt;&lt;b&gt;11. Termination of Services : &lt;/b&gt;On satisfactory completion of the probationary period your appointment will be confirmed in writing. After confirmation, your services may be terminated by either party, giving notice in writing for &lt;b&gt;one (1)&lt;/b&gt; month. The company reserves the right to terminate your association on grounds of misconduct or unsatisfactory job performance. When payment in lieu of notice is offered by either side, the notice pay shall mean only the basic salary and does not include cash equivalent of any allowances etc. Payment in lieu of notice shall be subject to acceptance of the same by the company considering unfinished tasks, projects on hand, work in progress, etc. You shall not be deemed to have been relieved of your services expect upon issue of a letter to that effect.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text23>
+        <Text29 isKey="true" Ref="42" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.2,6.8,16.8,2.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>fe34fdb1c6d08b99ada31debdf0ba318</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text29</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+          <Text>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;In absence of formal resignation company will not provide any certification of services.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Absence for a continuous period of 5 days without prior approval of our superior would be treated as abandonment of service.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text29>
+        <Text30 isKey="true" Ref="43" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.2,9.6,16.8,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>8b8926ed22acf6140a341df10a7ed9e6</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text30</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+          <Text>&lt;p&gt;On the termination of your employment for whatever reason, you will return to the Company all property&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text30>
+        <Text32 isKey="true" Ref="44" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,11,17.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>98eba47ef6c842014f251df176db0121</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text32</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+          <Text>&lt;p&gt;&lt;b&gt;12. Notice Period : &lt;/b&gt;Staffs who wish to terminate their employment with the Company are expected to give the following notice :&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text32>
+        <Text33 isKey="true" Ref="45" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.2,12.2,16.8,3.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>a6d09bc91a1829ba2fc01df1af3cf1d9</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text33</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+          <Text>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Associates on Probation – 30 days&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Confirmed Associates – 2 months&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Senior/Management Staff – 2 months&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text33>
+        <Text34 isKey="true" Ref="46" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,15.6,17.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>97570989488dc08534a41df2269a80ac</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text34</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+          <Text>&lt;p&gt;OR&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text34>
+        <Text35 isKey="true" Ref="47" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,18.2,17.2,1.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>15286208361d6750f0491df25c811376</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text35</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+          <Text>&lt;p&gt;&lt;b&gt;13. Standard of Attire : &lt;/b&gt;All Employees are expected to conform to an acceptable standard of dress to ensure that the image as presented to customers, colleagues and associates is in keeping with the proper professional approach of the Company.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text35>
+        <Text36 isKey="true" Ref="48" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,20.6,17.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>c0d788fe6c423f8613231df28420c255</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text36</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+          <Text>&lt;p&gt;&lt;b&gt;14. Working Hours: &lt;/b&gt;DRN Definite Solutions generally works round the clock, It is expected that you will work an average of &lt;b&gt;54&lt;/b&gt; hours per week during general business hours.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text36>
+        <Text37 isKey="true" Ref="49" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,22.4,17.2,1.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>ce966ace3aa02eaa30b51df2af48af44</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text37</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+          <Text>&lt;p&gt;From time to time you will be required to work reasonable additional hours or after hours when necessary to perform your duties. Overtime payments or time in lieu will be calculated in accordance with the company’s agreement terms which shall be duly notified during the course of employment.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text37>
+        <Text40 isKey="true" Ref="50" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.4,26,16.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,11</Font>
+          <Guid>e53e3ce5c316235a4e221df38e7c3c0a</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text40</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+          <Text>#16, 4th Floor, Lakshya Towers, 1st Cross, Guava Garden, 5th Block, Koramangala, Bangalore – 560095, Ph No. 080-65691240, Email: info@drnds.com</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text40>
+        <Text59 isKey="true" Ref="51" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,16.6,17.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>2a43776586be69e3cf6c314b6220d9f9</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text59</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+          <Text>&lt;p&gt;In times of conflict in accordance with Section 4 of the Minimum Notice and Terms of Employment Act, 1973. Notwithstanding the foregoing, the Company, may, at its discretion, waive its right to notice.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text59>
+        <ReportTitleBand3 isKey="true" Ref="52" type="ReportTitleBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2</ClientRectangle>
+          <Components isList="true" count="0"/>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportTitleBand3</Name>
+          <Page isRef="40"/>
+          <Parent isRef="40"/>
+        </ReportTitleBand3>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>e2e2fdb1e4e29cce9a085e25893f812a</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page3</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" Ref="53" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page3>
+    <Page4 isKey="true" Ref="54" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="9">
+        <Text41 isKey="true" Ref="55" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,14,17.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>1f4742d2ec48b4d4069b1df47188986f</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text41</Name>
+          <Page isRef="54"/>
+          <Parent isRef="54"/>
+          <Text>&lt;p&gt;&lt;b&gt;16. Privacy : &lt;/b&gt;You are required to observe and uphold all of the Company’s privacy policies and procedures as implemented or varied from time to time.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text41>
+        <Text42 isKey="true" Ref="56" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,15.6,17.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>3eca1c0a4449dfd2ebce1df4ad3e7c03</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text42</Name>
+          <Page isRef="54"/>
+          <Parent isRef="54"/>
+          <Text>&lt;p&gt;Collection, storage, access to and dissemination of employee personal information will be in accordance with privacy legislation. &lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text42>
+        <Text43 isKey="true" Ref="57" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,17.2,17.2,1.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>a4452926336f93d781c41df4f81630c1</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text43</Name>
+          <Page isRef="54"/>
+          <Parent isRef="54"/>
+          <Text>&lt;p&gt;&lt;b&gt;17. Company Policy : &lt;/b&gt;Is in place a number of company policies and procedures. You are required to comply with company policy. A failure to comply with these policies may result in disciplinary action being taken against you.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text43>
+        <Text44 isKey="true" Ref="58" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,19.2,17.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>01fd36b68900281be20c1df5352c13e4</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text44</Name>
+          <Page isRef="54"/>
+          <Parent isRef="54"/>
+          <Text>&lt;p&gt;&lt;b&gt;18. Retirement : &lt;/b&gt;You shall retire from the services of the company on attaining the age of 60 years on the basis of the age submitted by you, subject to your being medically and mentally fir.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text44>
+        <Text45 isKey="true" Ref="59" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,21,17.2,4.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>11e1659af6ee7491df541df57f59575c</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text45</Name>
+          <Page isRef="54"/>
+          <Parent isRef="54"/>
+          <Text>&lt;p&gt;&lt;b&gt;19. Intellectual Property Right:&lt;/b&gt; If during the period of your employment with us you achieve any invention, process improvement, operational improvement, or other process/method likely to result in more efficient operation of any of the activities of the company, the company shall be entitled to use, utilize and exploit such improvement and you shall assign all rights thereof to the company for the purpose of seeking any patent rights or for any other purpose. The company shall have the sole ownership rights of all the intellectual property rights that you may create during the tenure of association with the company including but not limited to the creative concept that you may develop during your association with the company.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text45>
+        <Text50 isKey="true" Ref="60" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.4,26,16.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,11</Font>
+          <Guid>6afd0fc105c12903b7e31df636c1ddf0</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text50</Name>
+          <Page isRef="54"/>
+          <Parent isRef="54"/>
+          <Text>#16, 4th Floor, Lakshya Towers, 1st Cross, Guava Garden, 5th Block, Koramangala, Bangalore – 560095, Ph No. 080-65691240, Email: info@drnds.com</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text50>
+        <Text39 isKey="true" Ref="61" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.6,4.2,16.4,9.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>27abf0a8e7cc3f6e9bd61df44780625e</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text39</Name>
+          <Page isRef="54"/>
+          <Parent isRef="54"/>
+          <Text>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Photo copies of all relevant certificates / Degree Mark Sheets etc.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Proof of Birth,&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Experience / Relieving Certificate from Previous employer.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Acceptance of Resignation – Last Organization &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Last two months pay slips of previous employer&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Voter ID / Pan / Aadar Card Copy.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Photocopy of Passport ( if available)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Form 16 – Previous company ( if applicable)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;PF. / UAN No. – Previous company ( if applicable)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text39>
+        <Text56 isKey="true" Ref="62" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,3,17.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>1828b0fd295514c916ca3c694ee4fdc7</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text56</Name>
+          <Page isRef="54"/>
+          <Parent isRef="54"/>
+          <Text>&lt;p&gt;&lt;b&gt;15. Verification of Particular Documents : &lt;/b&gt;You are required to produce the following at the time of Joining duty :&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text56>
+        <ReportTitleBand4 isKey="true" Ref="63" type="ReportTitleBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2.4</ClientRectangle>
+          <Components isList="true" count="0"/>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportTitleBand4</Name>
+          <Page isRef="54"/>
+          <Parent isRef="54"/>
+        </ReportTitleBand4>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>622d5333674ca0eb31535e2a032c7ce9</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page4</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" Ref="64" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page4>
+    <Page5 isKey="true" Ref="65" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="7">
+        <Text12 isKey="true" Ref="66" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,23.4,17.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>4c0a1dd7b34887e83ad51df8109913a5</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text12</Name>
+          <Page isRef="65"/>
+          <Parent isRef="65"/>
+          <Text>&lt;p&gt;&lt;b&gt;22. Law / Jurisdiction : &lt;/b&gt;Your employment with the Company is subject to Indian laws. All disputes shall be subject to the jurisdiction of &lt;b&gt;Bangalore,&lt;/b&gt; State of Karnataka, India.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text12>
+        <Text58 isKey="true" Ref="67" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.4,26,16.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,11</Font>
+          <Guid>51c52088303a32b7d60c3144d2bb5f7f</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text58</Name>
+          <Page isRef="65"/>
+          <Parent isRef="65"/>
+          <Text>#16, 4th Floor, Lakshya Towers, 1st Cross, Guava Garden, 5th Block, Koramangala, Bangalore – 560095, Ph No. 080-65691240, Email: info@drnds.com</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text58>
+        <Text9 isKey="true" Ref="68" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1,9.8,17,13</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>1f0ff4afe94d0658c8af1df7d8c3dae5</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text9</Name>
+          <Page isRef="65"/>
+          <Parent isRef="65"/>
+          <Text>&lt;p&gt;a. During your employment with the Company you will devote your whole time, attention and skill to the best of your ability for its business. You shall not, directly or indirectly, engage or associate yourself with, be connected with, concerned, employed or engaged in any other business or activities or any other post or work part time or pursue any course of study whatsoever, without the prior permission of the Company.&lt;/p&gt;
+&lt;p&gt;b. You must always maintain the highest degree of confidentiality and keep as confidential the records, documents and other Confidential Information relating to the business of the Company which may be known to you or confided in you by any means and you will use such records, documents and information only in a duly authorized manner in the interest of the Company. For the purposes of this clause ‘Confidential Information’ means information about the Company’s business and that of its customers which is not available to the &lt;/p&gt;
+&lt;p&gt;c. general public and which may be learnt by you in the course of your employment. This includes, but is not limited to, information relating to the organization, its customer lists, employment policies, personnel, and information about the Company’s products, processes including ideas, concepts, projections, technology, manuals, drawing, designs, specifications, and all papers, resumes, records and other documents containing such Confidential Information.&lt;/p&gt;
+&lt;p&gt;d. At no time, will you remove any Confidential Information from the office without permission.&lt;/p&gt;
+&lt;p&gt;e. Your duty to safeguard and not disclose Confidential Information will survive the expiration or termination of this Agreement and/or your employment with the Company.
+&lt;/p&gt;
+&lt;p&gt;f. Breach of the conditions of this clause will render you liable to summary dismissal under clause above in addition to any other remedy the Company may have against you in law.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text9>
+        <Text5 isKey="true" Ref="69" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,9,17.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>5a1d46726bc82588dfd73c496cc7a89e</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text5</Name>
+          <Page isRef="65"/>
+          <Parent isRef="65"/>
+          <Text>&lt;p&gt;&lt;b&gt;21. Confidentiality of Information : &lt;/b&gt;&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text5>
+        <Text48 isKey="true" Ref="70" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.6,4.4,16.4,4.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>faa374c2123c5bdbd2e33c6821c911e8</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text48</Name>
+          <Page isRef="65"/>
+          <Parent isRef="65"/>
+          <Text>&lt;p&gt;&lt;b&gt;a. Access to Information: &lt;/b&gt;Information is available on need to know basis for specific groups and the network file server of the company is segregated to allow individual sectors information access for projects and units. Access to this is authorized through access privileges approved by unit mentors or project mentors.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;b. Restriction on Personal Use: &lt;/b&gt;Use of company resources for personal use is strictly restricted. This includes usage of computer resources, information, internet service, and working time of the company for any personal use.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text48>
+        <Text38 isKey="true" Ref="71" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,3.4,17.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>25cf777148249b2f07383c6a0cc08a6c</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text38</Name>
+          <Page isRef="65"/>
+          <Parent isRef="65"/>
+          <Text>&lt;p&gt;&lt;b&gt;20. Restrain:&lt;/b&gt;&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text38>
+        <ReportTitleBand5 isKey="true" Ref="72" type="ReportTitleBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2.4</ClientRectangle>
+          <Components isList="true" count="0"/>
+          <Conditions isList="true" count="0"/>
+          <Name>ReportTitleBand5</Name>
+          <Page isRef="65"/>
+          <Parent isRef="65"/>
+        </ReportTitleBand5>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>4d918284c0c99a4b35e35e2ff1a61771</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page5</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" Ref="73" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page5>
+    <Page6 isKey="true" Ref="74" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="10">
+        <Text57 isKey="true" Ref="75" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,6.8,17.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>eae5d702df8ec0544fcb3c490cd63916</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text57</Name>
+          <Page isRef="74"/>
+          <Parent isRef="74"/>
+          <Text>&lt;p&gt;Sincerely,&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text57>
+        <Text51 isKey="true" Ref="76" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,8,17.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>4e5ca8da221b7dfe59a03c490cd68111</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text51</Name>
+          <Page isRef="74"/>
+          <Parent isRef="74"/>
+          <Text>&lt;p&gt;&lt;b&gt;DRN Definite Solutions Pvt Ltd., &lt;/b&gt;&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text51>
+        <Text52 isKey="true" Ref="77" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,8.8,17.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>e3945c3dc3982b78c30c3c490cd65156</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text52</Name>
+          <Page isRef="74"/>
+          <Parent isRef="74"/>
+          <Text>&lt;p&gt;&lt;b&gt;Dinesh Kumar.B &lt;/b&gt;&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text52>
+        <Text53 isKey="true" Ref="78" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,9.8,17.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>8d0eaeed0f78d5c20be73c490cd635db</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text53</Name>
+          <Page isRef="74"/>
+          <Parent isRef="74"/>
+          <Text>&lt;p&gt;&lt;b&gt;CEO / President&lt;/b&gt;&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text53>
+        <Text54 isKey="true" Ref="79" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,12,17.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>ab39526f139ab3c8c2843c490cd6b8b5</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text54</Name>
+          <Page isRef="74"/>
+          <Parent isRef="74"/>
+          <Text>&lt;p&gt;I ________________ accept the terms and conditions of this contract. &lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text54>
+        <Text55 isKey="true" Ref="80" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,13.2,17.6,3</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>3ca7c73f62b40781a4a63c490cd624f9</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text55</Name>
+          <Page isRef="74"/>
+          <Parent isRef="74"/>
+          <Text>&lt;p&gt;Name : _____________________________&lt;/p&gt;
+
+&lt;p&gt;Signature : __________________________&lt;/p&gt;
+
+&lt;p&gt;Dated: _____________________________ &lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text55>
+        <Text60 isKey="true" Ref="81" type="Text">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.4,26,16.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,11</Font>
+          <Guid>fdf5032c57783d21fba33c52c2c21592</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text60</Name>
+          <Page isRef="74"/>
+          <Parent isRef="74"/>
+          <Text>#16, 4th Floor, Lakshya Towers, 1st Cross, Guava Garden, 5th Block, Koramangala, Bangalore – 560095, Ph No. 080-65691240, Email: info@drnds.com</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text60>
+        <Text47 isKey="true" Ref="82" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,4.6,17.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>458b94f52a4aaaadd3603c66fe9d6b6c</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text47</Name>
+          <Page isRef="74"/>
+          <Parent isRef="74"/>
+          <Text>&lt;p&gt;We would like to welcome you to DRN Definite Solutions Family and wish you a long and rewarding career with us.&lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text47>
+        <Text49 isKey="true" Ref="83" type="Text">
+          <AllowHtmlTags>True</AllowHtmlTags>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,3.2,17.2,1.2</ClientRectangle>
+          <Conditions isList="true" count="0"/>
+          <Font>Calibri,12</Font>
+          <Guid>7332c2c728e95562f9c63c673065ab5c</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text49</Name>
+          <Page isRef="74"/>
+          <Parent isRef="74"/>
+          <Text>&lt;p&gt;&lt;b&gt;23. Welcome and Acceptance : &lt;/b&gt;Please confirm your acceptance of this by signing and returning the duplicate copy. &lt;/p&gt;</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text49>
+        <ReportTitleBand7 isKey="true" Ref="84" type="ReportTitleBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,2.4</ClientRectangle>
+          <Components isList="true" count="0"/>
+          <Conditions isList="true" count="0"/>
+          <Guid>3aa7e2dafc6a0db0a93a3c4ffda468ff</Guid>
+          <Name>ReportTitleBand7</Name>
+          <Page isRef="74"/>
+          <Parent isRef="74"/>
+        </ReportTitleBand7>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>3f95b162f8ed360d91803c323e98b3bb</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page6</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" Ref="85" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page6>
+  </Pages>
+  <PrinterSettings isKey="true" Ref="86" type="Stimulsoft.Report.Print.StiPrinterSettings"/>
+  <ReportAlias>DRN OfferLetter</ReportAlias>
+  <ReportChanged>01/14/2016 02:14:09 AM</ReportChanged>
+  <ReportCreated>12/01/2015 08:05:17 PM</ReportCreated>
+  <ReportFile>offerletter.pdf</ReportFile>
+  <ReportGuid>ea9b6ea4bbb8f86c58973cb7b90b2b15</ReportGuid>
+  <ReportName>DRN OfferLetter</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2015.1</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0"/>
+</StiSerializer>

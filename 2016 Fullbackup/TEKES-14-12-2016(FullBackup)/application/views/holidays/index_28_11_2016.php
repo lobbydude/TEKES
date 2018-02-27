@@ -1,0 +1,322 @@
+<?php
+$this->db->order_by('Holiday_Id', 'desc');
+$this->db->where('Status', 1);
+$q = $this->db->get('tbl_holiday');
+// my code start
+foreach ($q->result() as $row) {   
+    $holiday_id = $row->Holiday_Id;
+    $holiday_name = $row->Holiday_Name;    
+    $holiday_date1 = $row->Holiday_Date;    
+    //Date format converted Y-m-D to D-m-Y converted
+    $holiday_date = date("Y", strtotime($holiday_date1));   
+}
+?>
+<script>
+    function edit_Holiday(id) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('Holidays/Editholiday') ?>",
+            data: "holiday_id=" + id,
+            cache: false,
+            success: function (html) {
+                $("#editholiday_form").html(html);
+
+            }
+        });
+    }
+
+    function delete_Holiday(id) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('Holidays/Deleteholiday') ?>",
+            data: "holiday_id=" + id,
+            cache: false,
+            success: function (html) {
+                $("#deleteholiday_form").html(html);
+
+            }
+        });
+    }
+// Hide and Show
+function showgroupslip(){
+    $("#preview_div").hide();
+    $("#grouppayslip_div").show();    
+}
+function show_individual_payslip(){    
+    $("#grouppayslip_div").hide();
+    $("#preview_div").show();    
+}
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#addholiday_form').submit(function (e) {
+            e.preventDefault();
+            var formdata = {
+                add_holiday_name: $('#add_holiday_name').val(),
+                add_holiday_date: $('#add_holiday_date').val()
+            };
+            $.ajax({
+                url: "<?php echo site_url('Holidays/add_holiday') ?>",
+                type: 'post',
+                data: formdata,
+                success: function (msg) {
+                    if (msg == 'fail') {
+                        $('#addholiday_error').show();
+                    }
+                    if (msg == 'success') {
+                        $('#addholiday_success').show();
+                        window.location.reload();
+                    }
+                   
+                }
+
+            });
+        });
+    });
+// Year Select query
+    function select_year() {
+    //var selectBox = document.getElementById("selectBox");
+    //var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    //alert(selectedValue);
+    $("form#holiday_search").submit();
+   }
+</script>
+
+
+<div class="main-content">
+    <div class="container">
+        <section class="topspace blackshadow bg-white"> 
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="panel-heading info-bar" >
+                        <div class="panel-title">
+                            <h2>Holidays</h2>                            
+                        </div>                      
+                        <div class="panel-options">
+                            <button class="btn btn-primary btn-icon icon-left" type="button" onclick="jQuery('#add_holiday').modal('show', {backdrop: 'static'});">
+                                Add Holiday
+                                <i class="entypo-plus-circled"></i>
+                            </button>
+                        </div>
+                    </div>                    
+                    <!-- Select Year Design Start here--->                                      
+                        <br /><br />                
+                        <div class="col-md-12">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                                <h4>Select Year</h4>
+                            </div>
+                            <div class="col-md-2">                                    
+                                <form action="" name="holiday_search" id="holiday_search">
+                                    <?php
+                                    $holiday_year = $this->input->get('holiday_year');
+                                    define('DOB_YEAR_START', 2000);
+                                    $current_year = date('Y');
+                                    ?>
+                                    <select id="holiday_year" name="holiday_year" onchange="select_year();" class="round">
+                                        <?php
+                                        for ($count = $current_year; $count >= DOB_YEAR_START1; $count--) {
+                                            echo "<option value='{$count}' " . ($holiday_year == $count ? 'selected="selected"' : '') . ">{$count}</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </form>                                
+                            </div>                                
+                        </div>
+                            <!--<div class="col-md-2">
+                                <button type="submit" class="btn btn-primary">Preview</button>
+                            </div> -->
+                            <br /><br /><br /><br />       
+                    
+                    <!-- Holiday Table Format Start Here -->
+                    <table class="table table-bordered datatable" id="holiday_table">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Holiday Date</th>
+                                <th>Holiday Name</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // Search based on Holiday Year Start
+                            if($holiday_year) {                                
+                                $minyear = $holiday_year. "-01-01";
+                                $maxyear = $holiday_year. "-12-31";
+                                $this->db->where("Holiday_Date BETWEEN '". $minyear ."' AND '". $maxyear ."'");
+                            }                            
+                            $q = $this->db->get('tbl_holiday');
+                            // Search based on Holiday Year End
+                            $i = 1;
+                            foreach ($q->Result() as $row) {
+                                $holiday_id = $row->Holiday_Id;
+                                $holiday_name = $row->Holiday_Name;
+                                $holiday_date1 = $row->Holiday_Date;
+                                $holiday_date = date("d-m-Y", strtotime($holiday_date1));
+                                // Year Convert
+                                $holiday_year = date("Y", strtotime($holiday_date1));
+                                // Compare Current year and Past year
+                                //if($current_year == $holiday_year){
+                                ?>
+                                <tr>
+                                    <td><?php echo $i; ?></td>
+                                    <td><?php echo $holiday_date; ?></td>
+                                    <td><?php echo $holiday_name; ?></td>
+                                    <td>
+                                        <a data-toggle='modal' href='#edit_holiday' class="btn btn-default btn-sm btn-icon icon-left" onclick="edit_Holiday(<?php echo $holiday_id; ?>)">
+                                            <i class="entypo-pencil"></i>
+                                            Edit
+                                        </a>
+
+                                        <a data-toggle='modal' href='#delete_holiday' class="btn btn-danger btn-sm btn-icon icon-left" onclick="delete_Holiday(<?php echo $holiday_id; ?>)">
+                                            <i class="entypo-cancel"></i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>                               
+                                <?php 
+                                $i++;
+                                }
+                            //}                           
+                            ?>
+                        </tbody>
+                    </table>
+
+                    <!-- Holiday Table Format End Here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Add Holiday Start Here -->
+
+        <div class="modal fade" id="add_holiday">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header info-bar">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title">Add Holiday</h3>
+                    </div>
+                    <form role="form" id="addholiday_form" name="addholiday_form" method="post" class="validate">
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div id="addholiday_server_error" class="alert alert-info" style="display:none;"></div>
+                                    <div id="addholiday_success" class="alert alert-success" style="display:none;">Holiday details added successfully.</div>
+                                    <div id="addholiday_error" class="alert alert-danger" style="display:none;">Failed to add holiday details.</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="field-1" class="control-label">Holiday Name</label>
+                                        <input type="text" name="add_holiday_name" id="add_holiday_name" class="form-control" placeholder="Holiday" data-validate="required" data-message-required="Please enter holiday.">
+                                    </div>	
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="field-3" class="control-label">Date</label>
+                                        <div class="input-group">
+                                            <input type="text" name="add_holiday_date" id="add_holiday_date" class="form-control datepicker" data-format="dd-mm-yyyy" data-validate="required" data-message-required="Please select date.">
+                                            <div class="input-group-addon">
+                                                <a href="#"><i class="entypo-calendar"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>	
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Add</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Holiday End Here -->
+
+        <!-- Edit Holiday Start Here -->
+
+        <div class="modal fade" id="edit_holiday">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header info-bar">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title">Edit Holiday</h3>
+                    </div>
+                    <form role="form" id="editholiday_form" name="editholiday_form" method="post" class="validate" >
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Holiday End Here -->
+
+        <!-- Delete Holiday Start Here -->
+
+        <div class="modal fade" id="delete_holiday">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header info-bar">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title">Delete Holiday</h3>
+                    </div>
+                    <form role="form" id="deleteholiday_form" name="deleteholiday_form" method="post" class="validate">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Holiday End Here -->
+
+        <!-- Table Script -->
+        <script type="text/javascript">
+            var responsiveHelper;
+            var breakpointDefinition = {
+                tablet: 1024,
+                phone: 480
+            };
+            var tableContainer;
+
+            jQuery(document).ready(function ($)
+            {
+                tableContainer = $("#holiday_table");
+
+                tableContainer.dataTable({
+                    "sPaginationType": "bootstrap",
+                    "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                    "bStateSave": true,
+                    // Responsive Settings
+                    bAutoWidth: false,
+                    fnPreDrawCallback: function () {
+                        // Initialize the responsive datatables helper once.
+                        if (!responsiveHelper) {
+                            responsiveHelper = new ResponsiveDatatablesHelper(tableContainer, breakpointDefinition);
+                        }
+                    },
+                    fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                        responsiveHelper.createExpandIcon(nRow);
+                    },
+                    fnDrawCallback: function (oSettings) {
+                        responsiveHelper.respond();
+                    }
+                });
+
+                $(".dataTables_wrapper select").select2({
+                    minimumResultsForSearch: -1
+                });
+            });
+        </script>
+

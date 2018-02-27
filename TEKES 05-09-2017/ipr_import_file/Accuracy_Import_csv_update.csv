@@ -1,0 +1,65 @@
+Employee_Id,Order_Number,Order Type,Error Type,Error Description,Comments,Error Status,Error User Name,Error_User_DRN_Code,QC Status,QC Username,QC_User_DRN_Code,Production Date,Analysis,Dispute_Comments,Error,Internal,External
+104,275041,CURRENT OWNER SEARCH,Others,Others,"MISSED 5 LIENS AND JUDGEMENTS
+JUD		3/9/2011	2011000124775	
+LN		1/20/2010	027285
+JU		6/7/2011	279061
+LN		9/7/2012	0522167
+JUD		6/20/2014	0243785",Search,javeed,104,Search QC,nagadevi,NA,4/6/2017,NA,NA,No,2,1
+104,275041,CURRENT OWNER SEARCH,Others,Others,"REL LIENS SHOWN AS OPEN
+LNN		05/29/2008	2008000257095
+REL		2013000023855	
+	
+LNN		03/31/2009	2009000152327
+REL		2012000759366	
+	
+LNN		10/13/2010	2010000522813	
+REL		2012000648700	
+
+LNN		04/13/2010	2010000172738
+REL		2012000759367
+
+
+",Search,javeed,104,Search QC,nagadevi,NA,4/6/2017,NA,NA,Yes,2,1
+104,278788,CURRENT OWNER SEARCH,Others,Others,"1. MISSIED OF DEED OF TRUST DOCUMENT. (CLEARLY THEIR HAVE MENTION IN ""LIS PENDENS"" THE REFERRANCE NO. OF DOT BUT SEARCHER AND SEARCH QC PEOPLE DIDN'T CHECK..",Search,javeed,104,Final QC,asha,NA,4/20/2017,NA,NA,No,2,1
+104,279085,COMMERCIAL CURRENT OWNER SEARCH,Others,Others,NOP DEED F1242789==CONSIDERED,Search,javeed,104,Search QC,sreelakshmi,NA,4/20/2017,NA,NA,No,2,1
+104,280833,FULL SEARCH,Taxes,Taxes Incorrect,TAXES INCORRECT,Search,javeed,104,Search QC,shashikala,NA,4/28/2017,NA,NA,No,2,1
+136,483849812,CURRENT OWNER SEARCH,Documents,Incorrect Docs,MERGE THE DOCUMENTS PROPERLY,Search,Rajith,136,Search QC,Prakash R,NA,4/14/2017,NA,NA,No,2,1
+136,1.15E+11,FULL SEARCH,Deeds,Full value deed missed,MISSED 2 DEEDS AND TAX INFORMATION,Search,Rajith,136,Search QC,Prakash R,NA,4/10/2017,NA,NA,No,2,1
+136,1.15E+11,FULL SEARCH,Deeds,Missed or Incorrect info,DEED MISSING,Search,Rajith,136,Search QC,Prakash R,NA,4/12/2017,NA,NA,No,2,1
+104,270936,CURRENT OWNER SEARCH,Others,Others,DEEDS ARRANGED FROM OLD TO NEW,Search QC,javeed,104,Final QC,Amrutha.R,NA,4/4/2017,NA,NA,No,2,1
+104,272025,CURRENT OWNER SEARCH,Others,Others,2 DIV JUDGS MISSED,Search QC,javeed,104,Final QC,Amrutha.R,NA,4/5/2017,NA,NA,No,2,1
+104,275164,TWO OWNER SEARCH,Taxes,Taxes Others,MISSIED TO TAKE ASSESSOR,Search QC,javeed,104,Final QC,asha,NA,4/12/2017,NA,NA,No,2,1
+104,275165,TWO OWNER SEARCH,Others,Others,ASSESSOR MISSIED ,Search QC,javeed,104,Final QC,asha,NA,4/12/2017,NA,NA,No,2,1
+104,275215,TWO OWNER SEARCH,Others,Others,FULL DOCUMENT'S UNOFFICIAL COPY THERE HAVE TAKEN.. ,Search QC,javeed,104,Final QC,asha,NA,4/12/2017,NA,NA,No,2,1
+104,275987,TWO OWNER SEARCH,Others,Others,"AFD 	 	3/11/2009	348208 not ours",Search QC,javeed,104,Final QC,Amrutha.R,NA,4/16/2017,NA,NA,No,2,1
+121,279482,TWO OWNER SEARCH,SP-Search Package,Missing Items or Scanned Incorrectly,"MTG 1		12/15/2010	2393/227
+
+MTG 2		12/15/2010	2393/216
+ASG 1		09/27/2012	2506/835
+package arrangement sequence is incorrect",Search QC,kavitha,121,Exception,Amrutha.R,NA,4/26/2017,NA,NA,No,1,2
+104,279489,TWO OWNER SEARCH,Taxes,Taxes Incorrect,Taxes Incorrect full Parcel No P50927  P50922 Tax Missed ,Search QC,javeed,104,Final QC,Pushpa,NA,4/25/2017,NA,NA,No,2,1
+136,4005839486,CURRENT OWNER SEARCH,Others,Others,"Mers missed,",Search QC,Rajith,136,Typing QC,Latha K,NA,4/11/2017,NA,NA,No,2,1
+17,1213743,CURRENT OWNER SEARCH,Others,Others,Lien should be take it as line column. d't take it as additional,Typing,Sasikala,17,Typing QC,rekhasri,NA,4/21/2017,NA,NA,No,1,2
+17,47532475,CURRENT OWNER SEARCH,Others,Others,doc type taken wrong for deed & instr no. missed to type & no need bky when it is closed or discharged,Typing,Sasikala,17,Typing QC,Salomi N,NA,4/20/2017,NA,NA,No,1,2
+17,47532475,CURRENT OWNER SEARCH,Others,Others,Instrument Number missed in MTG,Typing,Sasikala,17,Final QC,Renuka,NA,4/20/2017,NA,NA,Yes,1,2
+17,55802170,CURRENT OWNER SEARCH,Others,Others,modification dated taken wrong,Typing,Sasikala,17,Typing QC,nageenataj,NA,4/21/2017,NA,NA,No,1,2
+17,123522344,CURRENT OWNER SEARCH,Others,Others,11-12897 instrument no. taken wrong. all judgments dated date taken wrong,Typing,Sasikala,17,Typing QC,rekhasri,NA,4/25/2017,NA,NA,No,1,2
+17,482342573,CURRENT OWNER SEARCH,Others,Others,"Last Asignee name taken wrong
+",Typing,Sasikala,17,Typing QC,Uma,NA,4/28/2017,NA,NA,No,1,2
+17,577832786,CURRENT OWNER SEARCH,Others,Others,"Mtg amt wrong, ",Typing,Sasikala,17,Final QC,Latha K,NA,4/15/2017,NA,NA,No,1,2
+17,604817908,CURRENT OWNER SEARCH,Others,Others,appoint name missed for substitute trustee,Typing,Sasikala,17,Typing QC,Salomi N,NA,4/26/2017,NA,NA,No,1,2
+17,656236345,CURRENT OWNER SEARCH,Others,Others,"judgment and lis pendens relates to mortgage, but taken in judgment",Typing,Sasikala,17,Typing QC,Venkatesh,NA,4/17/2017,NA,NA,No,1,2
+17,1082672273,CURRENT OWNER SEARCH,Others,Others,"2 judgments taken additional, ",Typing,Sasikala,17,Typing QC,nageenataj,NA,4/17/2017,NA,NA,No,1,2
+17,1119833112,CURRENT OWNER SEARCH,Others,Others,Effective date taken wrong. dated date wrong in notice. ,Typing,Sasikala,17,Typing QC,rekhasri,NA,4/20/2017,NA,NA,No,1,2
+17,1123792244,CURRENT OWNER SEARCH,Others,Others,Instrument type and Plantiff name (4383744 & 4393729) taken wrong,Typing,Sasikala,17,Typing QC,rekhasri,NA,4/19/2017,NA,NA,No,1,2
+17,1684412037,CURRENT OWNER SEARCH,Others,Others,Substitute trustee name taken wrong,Typing,Sasikala,17,Final QC,rekhasri,NA,4/20/2017,NA,NA,No,1,2
+17,1702522415,CURRENT OWNER SEARCH,Others,Others,None,Typing,Sasikala,17,Typing QC,Uma,NA,4/24/2017,NA,NA,No,1,2
+17,74-201-1-5384,TWO OWNER SEARCH,Others,Others,1st Assignment Book no captured wrongly,Typing,Sasikala,17,Final QC,ArunkumarV,NA,4/25/2017,NA,NA,No,1,2
+17,74-201-1-5384,TWO OWNER SEARCH,Others,Others,2nd Assignment Assignee Lender name captured wrongly,Typing,Sasikala,17,Final QC,ArunkumarV,NA,4/25/2017,NA,NA,Yes,1,2
+17,L-85292,CURRENT OWNER SEARCH,Others,Others,tax taken wrong,Typing,Sasikala,17,Typing QC,nageenataj,NA,4/17/2017,NA,NA,No,1,2
+17,L-85292,CURRENT OWNER SEARCH,Others,Others,tax taken wrong,Typing,Sasikala,17,Typing QC,nageenataj,NA,4/24/2017,NA,NA,Yes,1,2
+17,L-85537,CURRENT OWNER SEARCH,Others,Others,mers missing ,Typing,Sasikala,17,Typing QC,nageenataj,NA,4/12/2017,NA,NA,No,1,2
+17,L-85697,CURRENT OWNER SEARCH,Others,Others,dot trustee name missing,Typing,Sasikala,17,Typing QC,nageenataj,NA,4/15/2017,NA,NA,No,1,2
+17,L-85923,CURRENT OWNER SEARCH,Others,Others,MERS comment missed,Typing,Sasikala,17,Final QC,ArunkumarV,NA,4/19/2017,NA,NA,No,1,2
+17,L-85923,CURRENT OWNER SEARCH,Others,Others,Tax paid date captured wrongly,Typing,Sasikala,17,Final QC,ArunkumarV,NA,4/19/2017,NA,NA,Yes,1,2
+17,L-86422,CURRENT OWNER SEARCH,Others,Others,tax taken wrong,Typing,Sasikala,17,Typing QC,nageenataj,NA,4/25/2017,NA,NA,No,1,2
